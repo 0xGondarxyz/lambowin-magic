@@ -1,0 +1,1963 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-PUBLIC / lambo-win-dec
+==============================================================
+
+[11/28/2024 14:39] itsmetechjay (pinned)
+👋 Hello and welcome to the $22,500 in USDC **Lambo.win** audit channel!
+
+📆 Audit opens Monday, 02 December 2024 20:00 (20:00 UTC) and runs through Monday, 09 December 2024 20:00 (20:00 UTC) (7 days).
+
+Please give a warm welcome to the Lambo.win team, particularly @Shaneson, who will be available for questions either here in the channel or via a PRIVATE thread in the UTC +8 timezone. 
+
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try, by tagging `@Docs Wolf` in any thread (private or public) and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.  
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2024-12-lambowin
+
+{Reactions}
+👍 (4) 
+
+[11/28/2024 14:39] itsmetechjay
+Pinned a message.
+
+
+[12/02/2024 09:20] preslaven
+nSLOC?
+
+
+[12/02/2024 09:34] uaarrr
+https://discord.com/channels/810916927919620096/958800160870240286/1311695258467307672
+
+
+[12/02/2024 10:14] preslaven
+10x
+
+
+[12/02/2024 20:32] evokid
+SLOC 600
+
+
+[12/03/2024 06:16] 0x46_dustin
+@Shaneson  Deploy only on Ethereum mainnet?
+
+
+[12/03/2024 06:56] tobi0x18
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/image-6261F.png
+
+{Reactions}
+👍 
+
+[12/03/2024 08:36] shaneson_chen
+yes
+
+{Reactions}
+✅ 
+
+[12/03/2024 09:26] tobi0x18
+@Shaneson Are there any resources available besides `doc/LamboV2.pdf`?
+
+
+[12/03/2024 09:59] shaneson_chen (pinned)
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/LamboV2-376A7.pdf
+
+
+[12/03/2024 10:25] shaneson_chen
+Yes. I notice this low problem during the audition. Some auditor has told me this problem
+
+
+[12/03/2024 10:25] shaneson_chen
+And thanks every talent auditors
+
+{Reactions}
+💜 (2) 
+
+[12/03/2024 10:29] mrudenko
+will you push new changes?
+
+
+[12/03/2024 10:29] shaneson_chen
+No, I think the commitID is fixed
+
+
+[12/03/2024 10:29] shaneson_chen
+Btw, I suggest you can focus on this situation: When User swap, there are two way to swap:
+
+swap by aggregator (swap through VETH/WETH)
+swap by lamboRouter (cashIn/cashOut VETH)
+
+
+[12/03/2024 10:30] shaneson_chen
+The integration between aggregator, lamboRouter, and Uniswap add Liquidity. That will be very complex
+
+{Reactions}
+👍🏻 (2) 
+
+[12/03/2024 12:56] izuman
+@Shaneson   What are the address's that will be white listed in the VirtualToken.sol contract?
+
+
+[12/03/2024 13:56] kartoonjoy
+Pinned a message.
+
+
+[12/03/2024 17:53] welith
+you guys need to get a room 😄 it's like you are stalking each other in different contests 😄 😄
+
+{Reactions}
+😂 (6) 
+
+[12/03/2024 17:53] chonkov
+@Shaneson Which DEX is used for the `vETH/ETH` pool? In the whitepaper it mentions "Uniswap-V3", but in the images "Curve" is displayed
+
+
+[12/03/2024 17:56] welith
+You can see the interface used is under the OKX namespace which is this one https://www.okx.com/web3/build/docs
+
+{Reactions}
+👍🏻 😀 
+
+[12/03/2024 17:56] welith
+Here is the deployed dex + router -> https://vscode.blockscan.com/ethereum/0x08f03724Af0e0B7e51a3353ac452225314530a30
+
+
+[12/04/2024 03:04] konfushon
+what is the difference between VirtualToken and LamboToken?
+
+
+[12/04/2024 03:58] glightspeed
+virtual token = vETH which is pegged to WETH 1:1 and rebalanced by rebalancer. Also this provides virtual liquidity for lambo token
+lambo token = a prototype token to cloned and launched, also it will have a uniswap pair with virtual token (vETH)
+
+{Reactions}
+👍 (3) 
+
+[12/04/2024 04:55] konfushon
+so the meme coins to be launched are based off `lamboToken`
+
+{Reactions}
+✅ (4) 
+
+[12/04/2024 07:09] shaneson_chen
+1. LamboRouter
+2. Rebalancer
+3. MultiSign Address ( to offer the init liquidity of VETH/WETH in Uniswap V3, so need to be whitelist to cashIn)
+
+
+[12/04/2024 07:17] benrai
+So the VETH/WETH pool will be on Uniswap V3 and all pools for the Memecoins will be on Uniswap V2, right?
+
+
+[12/04/2024 07:18] shaneson_chen
+Yes
+
+{Reactions}
+👍 
+
+[12/04/2024 07:46] covey0x07
+what is meme coin?
+
+
+[12/04/2024 07:46] welith
+Does anyone know if an issue that is reported with a lower severity in the automated report, but a more severe consequence has been found due to it, can be submitted?
+
+
+[12/04/2024 07:50] shaneson_chen
+LamboToken
+
+
+[12/04/2024 07:51] covey0x07
+LamboToken is a token start-up protocols is going to issue?
+
+{Reactions}
+👍 (2) 
+
+[12/04/2024 07:53] welith
+You will have a big uniswapV3 pool for the WETH/VETH peg, and all other pools will be UniswapV2 VETH/LamboToken, where you can fully customize your LamboToken to suit your needs
+
+{Reactions}
+👍 (2) ❤️ 
+
+[12/04/2024 07:56] covey0x07
+> fully customize your LamboToken to suit your needs 
+Could you explain this more clearly? 🙏
+
+
+[12/04/2024 07:57] welith
+Its a ERC20 token, that you can set the name and symbol, so you can easily create meme tokens
+
+
+[12/04/2024 08:01] covey0x07
+All minted `1e8 ether` Lambo Tokens are transferred to the Uniswap V2 pool.
+As VETH is pegged ETH, a start-up protocol can decide the price of lambo token by specifying `vitualAmount`.
+To use the lamboToken, they should buy lambo token by providing ETH to LamboETHRouter?
+
+{Reactions}
+🫡 
+
+[12/04/2024 08:07] covey0x07
+cc @Shaneson
+
+
+[12/04/2024 08:11] welith
+When you create a launch pad, you essentially set the price of the LamboToken against the VETH, by providing the required `virtualLiquidityAmount` Afterwards, the uniswap v2 pools will be created, and the LamboToken will have liquidity behind it and will tradeable
+
+{Reactions}
+❤️ (2) 
+
+[12/04/2024 08:11] welith
+So yes, to sum up the whole thing 😄
+
+{Reactions}
+👍 
+
+[12/04/2024 08:13] covey0x07
+It means the start-up protocol can't mint excess lambo token, right?
+
+
+[12/04/2024 08:14] welith
+yes, from what I understand
+
+{Reactions}
+👍 
+
+[12/04/2024 08:16] covey0x07
+cc @Shaneson Could you confirm the above discusstions?
+
+
+[12/04/2024 08:24] shaneson_chen
+0xb0k0 is right
+
+{Reactions}
+👍 (2) 
+
+[12/04/2024 09:02] covey0x07
+@Shaneson In the scope of this contest, only VETH can be virtual token?
+Is it possible to create VUSDC?
+
+
+[12/04/2024 09:03] welith
+Question    Answer
+**ERC20 used by the protocol    None**
+Test coverage    55.10% (243/441 of statements)
+ERC721 used by the protocol    None
+ERC777 used by the protocol    None
+ERC1155 used by the protocol    None
+Chains the protocol will be deployed on    Ethereum
+
+
+[12/04/2024 09:13] glightspeed
+@Shaneson `forge coverage` gives me stack too deep error. Where can I find the coverage report?
+```
+forge coverage
+[⠊] Compiling...
+[⠒] Compiling 57 files with Solc 0.8.23
+[⠘] Compiling 93 files with Solc 0.8.28
+[⠔] Solc 0.8.28 finished in 2.64s
+[⠔] Solc 0.8.23 finished in 3.19s
+Error: Compiler run failed:
+Error: Compiler error (/solidity/libsolidity/codegen/ContractCompiler.cpp:842):Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+    --> src/libraries/1inchV6.sol:5600:9:
+     |
+5600 |         assembly ("memory-safe") {
+     |         ^ (Relevant source part starts here and spans across multiple lines).
+```
+
+
+[12/04/2024 09:14] welith
+In the contest page in code4arena
+
+
+[12/04/2024 09:15] glightspeed
+I wanna see the full report (lcov)
+
+
+[12/04/2024 10:04] bryan_conquer
+virtualToken. sol is the contract that allows liquidity providers to provide or supply liquidity to the protocol right?
+
+
+[12/04/2024 10:14] glightspeed
+no, currently there is no way for external LP providers to supply liquidity to the protocol
+but rather liquidity is provided by up-to-300 vETH loan from vETH, and uniswap v2 pair between loaned vETH and luanched token
+vETH is backed by vETH-wETH uniswap v3 pool and also by native 1:1 pegging in virtual token.sol, 
+There is also a rebalancer to keep vETH-wETH pegging by arbitraging between uniswap v3 pool and vETH -> wETH redeeming mechanism
+
+
+[12/04/2024 10:32] kiteweb3
+Has anyone an idea on how to fix this? The team produced the coverage report so it should work in some way 🙃 .
+
+
+[12/04/2024 10:43] evokid
+@Shaneson boss check out my PT whenever you available. Thanks
+
+
+[12/04/2024 12:56] 4gontuk
+@evokid bro is crushing
+
+{Reactions}
+🫡 💜 💯 
+
+[12/04/2024 14:03] jinxsalam
+Could someone explain the exact functionality of the take loan in the VirtualToken.sol and why is it used for?
+
+
+[12/04/2024 16:04] mo1055
+the 'onlyWhitelisted' modifier in the virtualtoken contract, are the intended to be the investors that would be providing the liquidity?
+
+
+[12/04/2024 16:59] jinxsalam
+LamboRouter
+Rebalancer
+MultiSign Address ( to offer the init liquidity of VETH/WETH in Uniswap V3, so need to be whitelist to cashIn)
+
+{Reactions}
+👍 (2) 
+
+[12/04/2024 19:56] deeney3866
+Started a thread.
+
+
+[12/05/2024 00:40] shaneson_chen
+Sorry everyone, 
+
+I have a bit of a fever. I will reply to the you all later asap.
+
+{Reactions}
+empathy (9) 💊 (6) 🫶 (2) 
+
+[12/05/2024 07:59] rspadi
+Does the uniswapPool (that is used in LamboRebalanceOnUniwap) already exist on mainnet and how is it /will it be created?  In contract RebalanceTest, I found the following code: uniswapPool = IPoolInitializer(NonfungiblePositionManager).createAndInitializePoolIfNecessary(
+            VETH,
+            WETH, ...    Is that the way, the uniswapPool will also be created on mainnet?
+
+
+[12/05/2024 08:49] bshyuunn
+Can’t the Lambo token be purchased directly from the Uniswap V2 VETH/Lambo token pool by first buying VETH through the uniswapV3 pool for the WETH/VETH peg?
+
+
+[12/05/2024 09:28] covey0x07
+It is possible.
+If you have VETH, you can swap it to the Lambo Token.
+
+
+[12/05/2024 09:42] bshyuunn
+Oh, I see.
+
+
+[12/05/2024 11:58] glenbruce
+In the readme/contest description it has this section ```## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
+
+Virtual liquidity is a conditional ERC20 token. For each holder address of virtual liquidity, the transferable balance must satisfy the following formula to ensure that the issued virtual liquidity does not enter the market.
+``` and then it just starts the running tests section without actually giving the formula that is supposed to follow.  What is the intended formula that the transferable balance must satisfy?
+
+
+[12/05/2024 12:04] glenbruce
+I am just trying to double check this, it has this earlier in the readme that I think is the intended formula `transferable_balance = balance - debt`
+
+
+[12/05/2024 12:23] 0xc4rl0s
+Can LamboToken be traded with any ERC20 on uni v2?
+
+
+[12/05/2024 15:36] ivanfitro
+if i understand correctly vETH will be used to create the pairs with lamboTokens?
+
+
+[12/05/2024 17:34] 0xorangesantra
+Yes
+
+{Reactions}
+👍 
+
+[12/05/2024 22:32] 33audits
+What is the use of the `previewRebalances` function? Is this being used off-chain somewhere?
+
+{Reactions}
+👍 
+
+[12/06/2024 00:13] shaneson_chen
+Sure
+
+{Reactions}
+👍 
+
+[12/06/2024 00:13] shaneson_chen
+Yes
+
+{Reactions}
+👍 
+
+[12/06/2024 00:14] shaneson_chen
+Yes. Just for off-chain
+
+
+[12/06/2024 00:14] shaneson_chen
+I think yes. But if not, the underling token will be hacked.
+
+
+[12/06/2024 01:16] bshyuunn
+Why does VirtualToken have a MAX_LOAN_PER_BLOCK limit of loans per block.number?
+
+
+[12/06/2024 01:30] shaneson_chen
+If not, taking loan with max(uint256) can easy destory this tool
+
+{Reactions}
+✅ 
+
+[12/06/2024 01:48] glightspeed
+@Shaneson What about broken coverage report?
+
+
+[12/06/2024 05:40] pfapostol
+Just delete src/libraries/1inchV6.sol and all references to it and you will be able to make any coverage report.
+
+
+[12/06/2024 05:40] pfapostol
+It not in the scope anyway
+
+
+[12/06/2024 06:50] pfapostol
+What you're missing is that discussing bugs in chat when there's a bug bounty competition going on is not a good thing.😄
+
+
+[12/06/2024 06:53] c_moose
+👀
+
+
+[12/06/2024 07:03] pfapostol
+I mean it's an valid issue, that you can report and it's better to remove it from the chat.
+
+
+[12/06/2024 07:04] pfapostol
+But this is QA severity anyway.
+
+
+[12/06/2024 07:05] c_moose
+yup, it's not causing any of the protocol functions to stop working but it's definitely an improvement
+
+
+[12/06/2024 08:25] pulse0452
+can anyone one tell me what is underlyingToken, NATIVE_TOKEN ??
+
+
+[12/06/2024 08:38] rspadi
+what is the mainnet address of the uniswapPool (weth & veth)?
+
+
+[12/06/2024 08:56] glightspeed
+It is supposed to be ETH (0x00) or other ETH-compatible tokens (WETH). but looks like it's only expecting ETH for now.
+
+{Reactions}
+👍 
+
+[12/06/2024 09:15] kiteweb3
+I have fixed it using `forge coverage --ir-minimum`. I tried to delete the src/libraries/1inchV6.sol but then the AggregationRouterV6 import in the BaseTest crashes.
+
+
+[12/06/2024 09:18] pfapostol
+AggregationRouterV6  is not used anywhere and could be deleted as well.
+
+{Reactions}
+🙏 
+
+[12/06/2024 10:49] evokid
+Yup that's I would say so.
+
+
+[12/06/2024 13:38] nuntax
+Anyone knows why this magic little -1 /+1 is in the refund logic of the _buyquote function? 
+```js
+ if (msg.value > (amountXIn + fee + 1)) {
+  (bool success, ) = payable(msg.sender).call
+            {value:msg.value - amountXIn - fee - 1}("");
+  require(success, "ETH transfer failed");
+ }
+```
+
+
+[12/06/2024 14:57] ivanfitro
+I think is used for avoid rounding errors, if a value is truncated
+
+
+[12/06/2024 15:40] nuntax
+thanks, that makes sense
+
+
+[12/06/2024 15:47] fuzz_it
+How many instances of VirtualToken will there be? @Shaneson
+
+
+[12/06/2024 20:07] parishill24
+hi guys, i just wannt to know in this line  (address quoteToken, address pool) = factory.createLaunchPad("LamboToken", "LAMBO", 10 ether, address(vETH));  1 Lambo =10 veth if i am wrong could u tell what s the relation between 10 ether and LAMBO. Thanks
+
+
+[12/06/2024 21:02] tobi0x18
+oh, bro. check the `lamboToken.initialize` function.
+
+{Reactions}
+👍 
+
+[12/06/2024 22:36] shaneson_chen
+Good suggestion...
+
+
+[12/06/2024 22:37] shaneson_chen
+Not deployed yet.
+
+
+[12/07/2024 21:20] spomaria
+Dear @Shaneson does the protocol intend to use any other token aside NATIVE_TOKEN as the underlying token for VirtualToken?
+
+
+[12/07/2024 21:22] spomaria
+Secondly dear @Shaneson can you give more light on the logic behind the `getAmountOut` function in `UniswapV2Library.sol` contract? Thanks.
+
+
+[12/08/2024 06:06] 0xmsf14
+Are there automated findings for this competition and where can I find them
+
+
+[12/08/2024 09:08] parishill24
+there's preview audit https://github.com/code-423n4/2024-12-lambowin/blob/main/audit/SlowMistAudit.pdf
+
+{Embed}
+https://github.com/code-423n4/2024-12-lambowin/blob/main/audit/SlowMistAudit.pdf
+2024-12-lambowin/audit/SlowMistAudit.pdf at main · code-423n4/2024-...
+Contribute to code-423n4/2024-12-lambowin development by creating an account on GitHub.
+
+
+[12/08/2024 10:05] infectedfuture
+https://github.com/code-423n4/2024-12-lambowin/tree/main?tab=readme-ov-file#automated-findings--publicly-known-issues
+at the top of the section
+
+{Embed}
+https://github.com/code-423n4/2024-12-lambowin/tree/main?tab=readme-ov-file
+GitHub - code-423n4/2024-12-lambowin
+Contribute to code-423n4/2024-12-lambowin development by creating an account on GitHub.
+
+
+[12/08/2024 13:23] undercover125
+are we able to edit a finding after we submit it?
+
+
+[12/08/2024 13:26] bigsam0831
+Yes you can
+
+
+[12/08/2024 13:51] itsmetechjay (pinned)
+ℹ️ There has been some confusion regarding the tokens in scope. After discussing with the sponsor we've confirmed that the tokens in scope would be only USDC and USDT.  The [README](https://github.com/code-423n4/2024-12-lambowin/commit/b8b8b0b1d7c9733a7bd9536e027886adb78ff83a) has been updated.
+
+{Reactions}
+🫠 (5) 4739_Skeletor (2) 
+
+[12/08/2024 13:52] itsmetechjay
+Pinned a message.
+
+
+[12/08/2024 14:56] dot_cloud
+how about the competition duration? would that updated as well?
+
+{Reactions}
+😂 (4) 
+
+[12/08/2024 15:15] itsmetechjay
+No change to the end date of the competition.
+
+
+[12/08/2024 16:38] infectedfuture
+@Shaneson are `LamboVEthRouter` and `LamboRebalanceOnUniswap` impacted with this change in scope?
+Doesn't seem so as they all reference to `vETH` which is a virtual token with ETH as underlying (also reference to WETH in the latter)
+
+
+[12/08/2024 18:36] fuzz_it
+I believe the change in scope just implies that they'll be more than one instances of VirtualTokens and their corresponding routers and rebalancers, and the one referenced in LamboVEthRouter is the instance that uses ETH as it underlyingToken
+
+
+[12/08/2024 19:42] infectedfuture
+the thing is `LamboRebalanceOnUniwap` has `weth` contract address as a constant state variable which is extensively used in the logic, so it cannot adapt to other instances of virtual tokens (USDC or USDT)
+
+
+[12/08/2024 19:45] infectedfuture
+in fact it simply cannot work because of calls to `WETH::withdraw` and `WETH::deposit`
+Even `LamboVEthRouter` is inherently designed for ETH for obvious reasons
+So we might infer that there will be new contracts especially designed for non WETH virtual tokens (or future update of those contracts)
+
+{Reactions}
+👍 (5) 
+
+[12/08/2024 19:47] tobi0x18
+agree with you, but still needs the sponsor's confirmation
+cc @Shaneson
+
+{Reactions}
+👍 (3) 
+
+[12/08/2024 19:59] evokid
+The whole implementation is in out weth vETH. Rebalance vETH and ETH. I can't get the idea where USDC and USDT play the role in the protocol? Which part.
+
+{Reactions}
+👍 (4) 
+
+[12/08/2024 19:59] robin_bl4z3
+same
+
+{Reactions}
+👍🏻 (2) 
+
+[12/08/2024 20:02] infectedfuture
+I think it still works for `VirtualToken.sol`? There's no reference to ETH whatsoever in this contract
+
+{Reactions}
+👍🏻 
+
+[12/08/2024 20:02] evokid
+Readme update:
+"Question    Answer
+ERC20 used by the protocol    USDC, USDT"
+
+You could be right hmm. As underlying token yes.
+
+
+[12/08/2024 20:04] infectedfuture
+Yes, but should we consider the other contract capable of interacting with these other virtual tokens? 🥲 
+This would be very strange to say yes when obviously its not, but idk
+
+{Reactions}
+☝🏻 
+
+[12/08/2024 20:05] evokid
+Updating the concept now assuming it will work as intended design, not sure a good idea.
+
+{Reactions}
+👍 
+
+[12/08/2024 20:13] tusharr1411
+tbh its poorly developed project...🥲
+
+
+[12/08/2024 20:18] infectedfuture
+the change in scope was maybe rushed, otherwise there's a lot of nice ideas in this project 🙏
+
+{Reactions}
+💯 (4) 👍🏻 
+
+[12/08/2024 20:25] tusharr1411
+Agree ! thats why I said "developed". The idea of virtual liquidity is great in itself. The project design also awesome... but  due to this USDT/USDC rush seem like it's a checkpoint audit for the project...
+
+{Reactions}
+👍 
+
+[12/08/2024 21:44] evokid
+The concept of locking tokens and give investors to start a token with small buy amount is brilliant already, you know even the development it's always challenging in the beginning. I still see creative design in the project. 🙂
+
+
+[12/09/2024 01:03] guy_in0xnito
+Even if so the router contract is payable 
+So it will take eth as input only
+The logic in virtual token is for any ERC20
+
+
+[12/09/2024 04:54] fuzz_it
+You are right. By saying their corresponding routers and rebalancer and not LamboVEthRouter and LamboRebalanceOnUniwap, I mean entirely new contract logic to serve similar purpose for the new instance of vTokens. We can infer from the `validFactories` mapping that the `VirtualToken` contract can work with different kinds of factories. It's up to the owner to decide whether to support a specific implementation or not.
+
+
+[12/09/2024 08:29] le_rems
+Hi , can the sponsor (cc @Shaneson) elaborate on USDC USDT in scope, as it involve completely weird behavior at the last moment 🙂
+
+
+[12/09/2024 08:34] shaneson_chen
+Generally, the VirtualToken will support USDC, USDT as underlying token if the launch of VETH get a good result.
+
+
+[12/09/2024 08:35] shaneson_chen
+Then, will propose a new version LamboRouter and new version factory (with more complicated features)
+
+{Reactions}
+✅ 
+
+[12/09/2024 08:36] shaneson_chen
+Sorry for the misunderstand in 7 days of this content
+
+{Reactions}
+👍🏻 
+
+[12/09/2024 08:45] infectedfuture
+Thanks for bringing those details ser. 
+Do you expect us to report incompatibilities in other contracts (router and rebalancer) regarding USDC/USDT ?
+
+
+[12/09/2024 08:45] infectedfuture
+regarding that
+
+
+[12/09/2024 08:58] shaneson_chen
+No, those contract just for ETH
+
+{Reactions}
+thankyou (6) 👍 
+
+[12/09/2024 10:24] zaevlad
+Just to be clear, it is planned to support USDT/USDC tokens in the future, but for now all reports regarding the support of these two tokens in the protocol will be accepted, right?
+
+
+[12/09/2024 10:45] shaneson_chen
+In VirtualToken, yes. But others, no
+
+
+[12/09/2024 10:54] zaevlad
+Reports will be accepted for VitualToken, and not for others, right?
+
+{Reactions}
+👍 
+
+[12/09/2024 12:38] evokid
+Ok this makes sense to me thank you.
+
+{Reactions}
+👍 (2) 
+
+[12/09/2024 13:36] ._rolando_.
+Here is the Scope:
+./src/LamboFactory.sol
+./src/LamboToken.sol
+./src/LamboVEthRouter.sol
+./src/VirtualToken.sol
+./src/rebalance/LamboRebalanceOnUniwap.sol
+./src/Utils/LaunchPadUtils.sol
+./src/libraries/UniswapV2Library.sol
+
+https://github.com/code-423n4/2024-12-lambowin/blob/main/scope.txt
+
+{Embed}
+https://github.com/code-423n4/2024-12-lambowin/blob/main/scope.txt
+2024-12-lambowin/scope.txt at main · code-423n4/2024-12-lambowin
+Contribute to code-423n4/2024-12-lambowin development by creating an account on GitHub.
+
+
+[12/09/2024 16:13] ._rolando_.
+Only 3 hours left, guys! Everything good?
+I'm really tired.
+
+{Reactions}
+🫠 (2) 
+
+[12/09/2024 16:37] c0pp3rscr3w3r
+hi
+if (msg.value > (amountXIn + fee + 1)) {
+(bool success, ) = payable(msg.sender).call{value: msg.value - amountXIn - fee - 1}("");
+Why was the one added?
+
+
+[12/09/2024 16:37] c0pp3rscr3w3r
+nd checked as well and  in refund
+
+
+[12/09/2024 18:18] tusharr1411
+To handle precision error, if a fee is truncated during fee calculation
+
+{Reactions}
+thankyou 
+
+[12/09/2024 18:19] c0pp3rscr3w3r
+are you with the protocol? can i use this reply in a report 👀
+
+
+[12/09/2024 18:21] tusharr1411
+No I'm not ! sorry i didn't see tagged
+
+{Reactions}
+👍 thankyou 
+
+[12/09/2024 18:26] pfapostol
+I believe that judges generally don't view discord messages as a source of truth, even if it's a sponsor.
+
+{Reactions}
+😭 (2) 
+
+[12/09/2024 18:27] pfapostol
+It would be unfair to those who don't read the channel. Because the wardens are not obliged to read.
+
+
+[12/09/2024 18:28] pfapostol
+Therefore, it is always better to make assumptions based only on readme file and linked there documents.
+
+{Reactions}
+👍 
+
+[12/09/2024 19:03] ._rolando_.
+Only 1 hour left!!! 🙀 😿
+
+{Reactions}
+👍 (2) 
+
+[12/09/2024 19:52] evokid
+I just done submitting, I wish the best for everyone 🙏.
+
+{Reactions}
+❤️ (5) andbang 
+
+[12/09/2024 19:55] ._rolando_.
+How many findings? 🔍👀
+
+{Reactions}
+🫡 
+
+[12/09/2024 19:57] rouhsamad
+Pls fix submission, i wrote for 1 hour and then firefox crash, had to do all again 🥲🥲🥲
+
+{Reactions}
+🥲 (4) 😢 (2) 🙀 (2) 😿 (2) 
+
+[12/09/2024 20:00] ._rolando_.
+Oh no! 😿
+
+
+[12/09/2024 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens The **Lambo.win** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks.
+
+{Reactions}
+🙀 🔥 
+
+[12/09/2024 20:02] ._rolando_.
+Could you upload something? 📤🤔
+
+
+[12/09/2024 20:13] rouhsamad
+Yea uploaded, but took me another 1.5 bad hours😅
+
+Would be great if changes could be like saved in local cache untill submitted
+
+{Reactions}
+🔥 
+
+[12/09/2024 20:14] 0xstalin
+You should write your reports on vscode, and then only copy paste the report onto the c4 app 😅
+
+{Reactions}
+code4rena (3) 👍 (3) ✅ (2) 
+
+[12/09/2024 20:21] rouhsamad
+Yes thats right, was so rushed that thought will just do it all here😅
+
+
+[12/09/2024 20:28] ._rolando_.
+How many findings did you get? 🔍👀
+
+
+[12/09/2024 20:29] rouhsamad
+Around 50 60
+
+{Reactions}
+😆 (2) 
+
+[12/09/2024 20:33] ._rolando_.
+WTF!!!!! 🙀
+
+
+[12/09/2024 20:36] rouhsamad
+😎
+
+
+[12/09/2024 20:37] ._rolando_.
+I sent you a DM. 📩
+
+
+[12/09/2024 20:40] rouhsamad
+Just kidding bro 😅, no contest has that much issues in it
+
+{Reactions}
+😹 (2) 
+
+[12/09/2024 21:02] kmm77
+should've seen loop 😅
+
+
+[12/09/2024 21:06] rouhsamad
+🥲
+
+
+[12/09/2024 22:21] infectedfuture
+This was a great contest and  interesting protocol, thanks for your trust (and availability) @Shaneson 🙏🏼:10_10:
+
+{Reactions}
+👍 hi5 
+
+[12/10/2024 00:23] tobi0x18
+how many submissions?
+
+
+[12/10/2024 01:13] deeney3866
+Can all submissions be seen?
+
+
+[12/10/2024 01:29] shaneson_chen
+Good morning, everyone. 
+
+I have just got all of your submissions. I sincerely appreciate the time and effort you, as talented auditors, have dedicated to auditing my code amidst your busy schedules.
+
+Thanks everyone. I will finish the review asap.
+
+{Reactions}
+💜 (59) thankyou (14) 
+
+[12/12/2024 20:20] kann_p
+Whats the estimated time for the  results to be published
+
+
+[12/13/2024 08:10] infectedfuture
+count at least 1 month, but probably a bit more
+
+{Reactions}
+💀 (3) 
+
+[12/13/2024 10:00] kann_p
+too many reports or what
+
+
+[12/13/2024 10:24] infectedfuture
++700 reports, but you'll rarely get result sooner than 1 month anyway
+there's multiple phase of judging, the last one being post judgement QA where wardens (with "SR" role) discuss with judges about decisions to re-evaluate severity/validity if they don't agree
+
+{Reactions}
+👍 (4) 
+
+[12/13/2024 10:29] kann_p
+Interesting, thanks for the info 😼
+
+{Reactions}
+🐱 
+
+[12/18/2024 19:43] kann_p
+lambo lambo
+
+
+[12/19/2024 05:06] dot_cloud
+lambo win and lambo wen
+
+
+[12/20/2024 09:28] mrmorningstar96
+How is judging progressing, did PJQA started?
+
+
+[12/20/2024 13:32] deeney3866
+Rt
+
+
+[12/20/2024 17:01] mrmorningstar96
+? 😕
+
+
+[12/23/2024 23:21] infectedfuture
+not yet
+
+
+[12/24/2024 11:51] mrmorningstar96
+do you think it will start before new year?
+
+
+[12/24/2024 15:04] infectedfuture
+I don't expect that, still many issues not judged, and with holidays (christmas, new year's eve) its probable this will go slower than usual
+
+{Reactions}
+😥 (3) 
+
+[12/25/2024 20:30] deeney3866
+Make protocol even do aguero moment  1H and 1M
+
+{Reactions}
+😂 
+
+[12/28/2024 12:19] mrudenko
+I will not be surprised if in one year there will be avg of 1500 reports per contest
+
+{Reactions}
+😂 
+
+[12/28/2024 20:50] deeney3866
+We're getting there soon.
+
+
+[12/29/2024 21:11] kann_p
+can a judge contact me please
+
+
+[01/01/2025 09:56] dot_cloud
+https://tenor.com/view/its-been84years-titanic-rose-dawson-gif-5372593
+
+{Embed}
+https://tenor.com/view/its-been84years-titanic-rose-dawson-gif-5372593
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/its-been84years-titanic-02D8C.png
+
+{Reactions}
+😂 (6) 
+
+[01/01/2025 21:05] rouhsamad
+i remember doing this contest
+
+
+[01/01/2025 21:05] rouhsamad
+goold old days man
+
+{Reactions}
+😂 (7) 
+
+[01/02/2025 12:18] iltutmishxqc
+lambo wen wen
+
+
+[01/02/2025 12:19] iltutmishxqc
+Been waiting since last year smh
+
+{Reactions}
+😂 (8) 
+
+[01/05/2025 21:05] 0xaria_eth
+hey there
+
+
+[01/05/2025 21:05] 0xaria_eth
+hey buddy i know you
+
+{Reactions}
+thankyou 
+
+[01/05/2025 21:06] 0xaria_eth
+i'm so glad to meet
+
+
+[01/06/2025 11:31] daniel526
+why so long? Bills are so impatient this other side
+
+
+[01/06/2025 11:50] kann_p
+XD
+
+
+[01/07/2025 08:38] iltutmishxqc
+I think they forgot about this contest
+
+
+[01/07/2025 09:24] mrfalsegenius
+Either that or you're way too impatient
+
+
+[01/07/2025 11:05] iltutmishxqc
+I don't think waiting for a month makes me impatient
+
+
+[01/07/2025 11:13] mrmorningstar96
+on one of previous contests I waited for like 3 months for results 😅
+
+
+[01/07/2025 11:21] mrfalsegenius
+No my dude. That's like how long it takes on average. Plus, this time, you must account for the New Year + Christmas.
+
+{Reactions}
+✅ 
+
+[01/07/2025 11:22] mrfalsegenius
+Damn
+
+
+[01/07/2025 11:54] iltutmishxqc
+RIP
+
+{Reactions}
+🤣 
+
+[01/08/2025 09:48] fuzz_it
+For a ~700 nSloc project too?
+
+
+[01/08/2025 09:54] mrfalsegenius
+If  nSloc == 50 and 10k submissions, then yes, it would take time.
+
+{Reactions}
+👍 
+
+[01/08/2025 17:54] mrudenko
+I am curious what payout will be for first place? 1k?
+
+
+[01/08/2025 22:53] newspacexyz
+@thebrittfactor | C4 When the final result is expected?
+
+
+[01/08/2025 23:54] fuzz_it
+Uhm... A small nSloc implies less attack surface which means relatively fewer submissions. It also implies a shorter time is required to understand the code context, which makes judging N submissions relatively faster compare larger nSloc for thesame number of submissions.
+
+
+[01/08/2025 23:55] fuzz_it
+It's okay to say the judging process is slow
+
+{Reactions}
+💯 (3) 
+
+[01/09/2025 04:46] mrfalsegenius
+Alright, fine! You win.
+
+
+[01/09/2025 04:47] mrfalsegenius
+At least, it won't take forever
+
+
+[01/09/2025 09:50] 0xmsf14
+I think fixed judging timeframes are the next step for security research firms. if we can estimate contest time we can estimate judging times
+
+{Reactions}
+👍 (5) 
+
+[01/09/2025 17:15] mushow
+Your argument makes sense, however we could also state that a higher nSLOC implies a better structured project, with often better test coverage / architecture. Smaller nSLOC are usually team with not much budget to cover security. 
+
+Better structured project is equal to less logic bugs, they're 80% of the bugs reported to date, so usually also less bugs 😉
+
+I don't think nSLOC is a factor overall and it's just contest dependent.
+
+{Reactions}
+👍 (2) 
+
+[01/10/2025 10:42] fuzz_it
+That's fair
+
+
+[01/12/2025 21:23] plairfx
+https://tenor.com/view/tommy-shelby-thomas-shelby-tommy-eats-absolute-dirt-peaky-blinders-sad-gif-708504011630260878
+
+{Embed}
+https://tenor.com/view/tommy-shelby-thomas-shelby-tommy-eats-absolute-dirt-peaky-blinders-sad-gif-708504011630260878
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/tommy-shelby-thomas-shelby-6FAD5.png
+
+{Reactions}
+😂 (6) 
+
+[01/12/2025 21:24] kann_p
+https://tenor.com/view/bye-deuces-peace-out-leave-disappear-gif-11811769
+
+{Embed}
+https://tenor.com/view/bye-deuces-peace-out-leave-disappear-gif-11811769
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/bye-deuces-59575.png
+
+{Reactions}
+🤣 (3) 
+
+[01/13/2025 14:03] dot_cloud
+lambo wen
+
+
+[01/13/2025 14:10] shiazinho
+lambo lambo
+
+
+[01/13/2025 14:31] kann_p
+https://www.youtube.com/watch?v=RM96XQ7X6b0
+
+{Embed}
+PlanetaOfficial
+https://www.youtube.com/watch?v=RM96XQ7X6b0
+GALENA & FIKI - LAMBORGHINI / Галена и Фики - Ламборгини,  2019
+Listen / Buy MP3 on streaming platforms: https://orcd.co/galenafikilamborgini
+
+Producer: Payner Media Ltd. / Payner Ltd. - Media: Planeta TV, Planeta HD, Planeta 4K
+All rights reserved: (C) & (P) Payner Ltd., Bulgaria
+За публични изяви и участия: tel: 0391 603 27, 088 8 726 298, 087 9 000 006 / mail: office@payner.bg
+Bulgaria, 6400 Dimitrovgrad,...
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/maxresdefault-84F5D.jpg
+
+{Reactions}
+😭 😂 
+
+[01/13/2025 14:31] kann_p
+this is the song made for this contest
+
+
+[01/13/2025 14:50] rouhsamad
+Scientists discovered ancient writings about a contest named lambo.win
+
+{Reactions}
+😂 (11) 
+
+[01/13/2025 20:51] vesko210
+hahaha can't believe my eyes
+
+
+[01/13/2025 22:49] kann_p
+eyes lie , galena never lies
+
+{Reactions}
+🤣 (4) 
+
+[01/16/2025 15:48] daniel526
+https://tenor.com/view/fisto-4762-4762armada-punk4762-cryptopunks-gif-18293281662779952943
+
+{Embed}
+https://tenor.com/view/fisto-4762-4762armada-punk4762-cryptopunks-gif-18293281662779952943
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/fisto-4762-A369A.png
+
+{Reactions}
+🤣 
+
+[01/16/2025 18:47] rouhsamad
+🥲
+
+
+[01/16/2025 18:47] rouhsamad
+Any one with access to backstage
+
+
+[01/16/2025 18:48] rouhsamad
+Can tell us the progress
+
+
+[01/16/2025 19:40] chainsentry
+Yeah at this point we might just have to agree to accept whatever has already been judged and hope for the best 😂
+
+
+[01/17/2025 00:18] fuzz_it
+Not even planning to escalate shii 
+
+Whatever will be will be💀
+
+{Reactions}
+🫡 (8) 
+
+[01/17/2025 07:29] 0xmsf14
+So no c4 stimmy to frontrun the inauguration pump ?
+
+
+[01/19/2025 16:43] plairfx
+@Shaneson  any update on the review sir?:)
+
+
+[01/21/2025 14:14] mo1055
+updates anyone😪
+
+
+[01/21/2025 14:19] dot_cloud
+https://tenor.com/view/soon-tm-soon-space-gif-23401891
+
+{Embed}
+https://tenor.com/view/soon-tm-soon-space-gif-23401891
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/soon-tm-soon-16B89.png
+
+{Reactions}
+💀 (4) 
+
+[01/21/2025 15:18] mrfalsegenius
+https://tenor.com/view/evil-laugh-rub-hands-patrick-star-evil-plan-gif-11545767269252011654
+
+{Embed}
+https://tenor.com/view/evil-laugh-rub-hands-patrick-star-evil-plan-gif-11545767269252011654
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/evil-laugh-rub-hands-30040.png
+
+{Reactions}
+😂 (3) 4739_Skeletor 
+
+[01/22/2025 14:51] brivan
+PJQA ending today
+
+{Reactions}
+🔥 (13) 
+
+[01/22/2025 15:59] saikumar279
+What comes after PJQA? This is my first time participating in a contest.
+
+
+[01/23/2025 05:38] 0xsorrynotsorry
+Judge has their final decision. And the confirmed issues shape the payouts
+
+{Reactions}
+👍 (2) thankyou 
+
+[01/23/2025 12:20] daniel526
+is there any chance these are getting announced today?
+
+{Reactions}
+goose (5) 
+
+[01/23/2025 16:48] saikumar279
+Ok
+
+
+[01/23/2025 23:08] vesko210
+Soo its my second audit, how much time does this phase typically take? (Sorry if the question is stupid)
+
+
+[01/24/2025 02:57] 0xsorrynotsorry
+You can expect roughly a week I can say.
+
+{Reactions}
+🫡 (4) 
+
+[01/24/2025 03:03] kann_p
+daaamn
+
+
+[01/24/2025 06:32] dot_cloud
+:chefskiss:
+
+
+[01/27/2025 09:48] mrudenko
+is lambo honeypot?)
+
+
+[01/27/2025 11:55] daniel526
+https://tenor.com/view/wen-the-sol-den-the-sol-den-wen-solana-wen-taiyo-wen-gif-9713405015565385747
+
+{Embed}
+https://tenor.com/view/wen-the-sol-den-the-sol-den-wen-solana-wen-taiyo-wen-gif-9713405015565385747
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/wen-the-sol-den-18B22.png
+
+{Reactions}
+🤣 (3) 
+
+[01/27/2025 19:33] rouhsamad
+😐
+
+
+[01/27/2025 19:43] deeney3866
+Taking forever🥺
+
+
+[01/28/2025 03:01] itsmetechjay
+🤑 🎉  Awards for **Lambo.win**:
+
+$7,265.22 USDC » @evokid
+$2,034.92 USDC » @Daniel526
+$1,564.53 USDC » @orangesantra
+$1,314.64 USDC » EPSec (@0x539.eth | ChainDefenders and @petarP1998)
+$607.23 USDC » @rsam_eth
+$584.49 USDC » @Bauchibred
+$388.43 USDC » @m4k2
+$361.04    USDC » @zaevlad
+$327.88 USDC » @...
+$327.13 USDC » @infect3d
+$316.20 USDC » bumbleb33 (@33audits and @bumble.c)
+$299.22 USDC » @mrMorningstar
+$262.77 USDC » @prapandey031
+$236.21 USDC » PolarizedLight (@Auditor-Nate and @ChaseTheLight)
+$230.47 USDC » @0xGondar
+$230.17 USDC » @MSaptarshi
+$196.51 USDC » @Agontuk
+$172.29 USDC » @SpicyMeatball
+$150.76 USDC » NexusAudits (@cheatc0d3 and @zxnnx)
+$150.47 USDC » @0xleadwizard
+$145.58 USDC » @KupiaSec
+$116.04 USDC » @Jiri123
+$115.74 USDC » @BenRai
+$115.74 USDC » @Rhaydden
+$115.74 USDC » @ZhengZuo999
+$111.16 USDC » @pontifex
+$110.86 USDC » @Amun
+$110.86 USDC » @ka14ar
+$81.07 USDC » @cold
+$81.07 USDC » @MrPotatoMagic
+$80.77 USDC » @TenderBeastJr
+$34.72 USDC » @bshyuunn
+$34.72 USDC » @Bryan_Conquer
+$34.72 USDC » OpaBatyo (@armormadeofwoe and @amar)
+$34.72 USDC » @metamaks
+$34.72 USDC » @0xDemon
+$28.67 USDC » @zxriptor
+$27.39 USDC » @Le_Rems
+$22.23 USDC » @shaflow2
+$22.13  USDC » @threadmodeling
+$21.83 USDC » @web3km
+$21.83 USDC » @ast3ros
+$21.83 USDC » @mrudenko
+$21.83 USDC » @FalseGenius
+$21.83 USDC » @auditism
+$21.83 USDC » @The Fabled
+$21.83 USDC » @Paco
+$5.26 USDC » @Shubham
+$5.26 USDC » @aua_oo7
+$5.26 USDC » Vagabond (@MyssTeeQue and @0xsagetony)
+$5.26 USDC » @0xLasadie
+$5.26USDC » @saikumar279
+$5.26 USDC » @mansa11
+$5.26 USDC » @Bareli
+$5.26 USDC » @4N0NX
+$5.26 USDC » @mrmatrixxx
+$5.26 USDC » @Ryonen
+$5.26 USDC » @gajiknownnothing
+$5.26 USDC » @evta
+$0.30 USDC » @Tychai0s
+$0.30 USDC » @zzebra83
+$0.30 USDC » @c0pp3rscr3w3r
+$0.30 USDC » @typicalHuman
+$0.30 USDC » @Fitro
+$0.30 USDC » @Jaraxxus775
+$0.30 USDC » @Fon
+$0.30 USDC » @jkk812812
+$0.30 USDC » @rspadi
+$0.30 USDC » @Artur
+$0.30USDC » @farismaulana
+$0.30 USDC » @parishill24
+$0.30 USDC » @Vasquez
+$0.30 USDC » @kodyvim
+$0.30 USDC » @Mushow
+$0.30 USDC » @D4n13l
+
+🏁 Findings summary
+--------------------------------------—
+4 High risk findings
+10 Med risk finding
+222 wardens contributed
+
+Top Hunter: Evo
+Top Gatherer: Evo
+Top QA report: Bauchibred
+
+Congratulations all!  💸 💸 💸
+
+- Awards will be distributed on Polygon within the next week. 
+- ⚠️ Awardees, be sure to [complete your tax reporting info](https://docs.code4rena.com/awarding/incentive-model-and-awards/awarding-process#tax-information-for-code4rena-contributors-wardens-judges-etc) if you haven't already. This must be completed within 30 days (i.e. before Wednesday, 26 February 2025) to receive your award distribution for this audit.
+- The leaderboard will be updated at a later date with these audit results. 
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and findings are made public to check on your submissions.*
+
+{Reactions}
+🦾 (8) 
+
+[01/28/2025 03:27] tigerfrake
+Congratulations @Daniel526 😎😎. Great to see you up there buddy😁🎉
+
+{Reactions}
+🔥 
+
+[01/28/2025 04:19] mrfalsegenius
+Hey, how do I check which ones were valid? The findings are under "Findings", but where can I see which ones are valid?
+
+{Reactions}
+👍 (2) 
+
+[01/28/2025 04:33] mrfalsegenius
+" please wait until the report is published and findings are made public to check on your submissions"
+
+
+[01/28/2025 04:33] mrfalsegenius
+Oh, okay. Thank you
+
+
+[01/28/2025 05:07] dot_cloud
+bruh 😂
+
+{Reactions}
+🤣 (4) 
+
+[01/28/2025 05:08] daniel526
+thanks pal
+
+{Reactions}
+🫡 (7) 
+
+[01/28/2025 06:15] c_moose
+https://tenor.com/view/%D9%84%D8%A7-%D8%A8%D8%A3%D8%B3-positive-self-talk-gif-14502928
+
+{Embed}
+https://tenor.com/view/%D9%84%D8%A7-%D8%A8%D8%A3%D8%B3-positive-self-talk-gif-14502928
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/%25D9%2584%25D8%25A7-%25D8%25A8%25D8%25A3%-4BC97.png
+
+{Reactions}
+🤣 (2) 
+
+[01/28/2025 07:28] pumpkingwok
+https://github.com/code-423n4/2024-12-lambowin/blob/main/src/VirtualToken.sol
+
+{Embed}
+https://github.com/code-423n4/2024-12-lambowin/blob/main/src/VirtualToken.sol
+2024-12-lambowin/src/VirtualToken.sol at main · code-423n4/2024-12-...
+Contribute to code-423n4/2024-12-lambowin development by creating an account on GitHub.
+
+
+[01/28/2025 07:29] pumpkingwok
+so it was intended to be used only with ETH, right ? It does not support any erc20
+
+
+[01/28/2025 07:36] 4gontuk
+Someone stop this guy @evokid !! Btw congrats 🫡
+
+{Reactions}
+🫡 ❤️ 
+
+[01/28/2025 07:51] 0xslowbug
+congrats @evokid
+
+{Reactions}
+❤️ 
+
+[01/28/2025 07:56] rouhsamad
+Finally
+
+
+[01/28/2025 07:58] dot_cloud
+https://discord.com/channels/810916927919620096/1311476554349547623/1315314927296184330
+
+
+[01/28/2025 08:37] kiteweb3
+Hi guys, sorry if asking but it's my first time here. Is there a way to see the status of the submissions (valid/invalid)? On the findings page there are only the submissions as submitted (no status and no comments). Thanks
+
+
+[01/28/2025 09:08] 0xgondarxyz
+Yay! My first 3 digits win! Took 2 months to see, I wish it was sooner, as it would boost my confidence A LOT. But still, better late than never, I'm happy guys ❤️
+
+{Reactions}
+🔥 (9) 💜 (4) 🫡 (3) 
+
+[01/28/2025 09:13] evokid
+I didn't expect this to be honest, for all wardens who participated in this contest, please keep it going 🙏🫡 I am surprised...
+
+{Reactions}
+🔥 (9) 💜 (2) 
+
+[01/28/2025 09:25] cloudellie
+You’ll be able to see those details when the report is published — at which point we’ll make all submissions public.
+
+{Reactions}
+🙏 (2) 
+
+[01/28/2025 10:32] pumpkingwok
+thanks a lot, so now i'm confused because i reported an high one about the erc20 mechanism on `VirtualToken.sol` but it seemed to not be valid. i will wait the report
+
+{Reactions}
+👍 🙏 
+
+[01/28/2025 12:45] zxriptor
+it is valid bro. it just has 128 dups hence resulted in $0.00 payout
+
+{Reactions}
+😂 (8) 
+
+[01/28/2025 15:06] pumpkingwok
+it makes completely sense 😂
+
+
+[01/28/2025 15:06] pumpkingwok
+thanks for the clarification
+
+
+[01/28/2025 18:17] bryan_conquer
+congratulations to everyone, I'm happy for this because it's my first win 💪 to more better win in 2025..
+
+{Reactions}
+🔥 (7) 
+
+[01/28/2025 18:24] 33audits
+why didn't you expect it?
+
+
+[01/28/2025 18:32] robin_bl4z3
+2024? 😅
+
+
+[01/28/2025 18:35] bryan_conquer
+The results took so much time 😂😂😂
+
+{Reactions}
+😂 (2) 
+
+[01/28/2025 21:55] evokid
+I never been first place in C4 since I started around 2 years ago.
+
+{Reactions}
+❤️ (15) 
+
+[01/28/2025 22:37] bryan_conquer
+Congratulations man
+
+{Reactions}
+🙏🏻 (3) 🫡 (2) 
+
+[01/29/2025 06:52] bloqarl
+Hey, it's been a while since I participated in a contest here and I'm wondering where I can see all the accepted submissions.
+
+ Also, I submitted a few Lows in the QA report but I don't see any details about those being accepted or rejected. Could anyone please tell me where or how I should find out about it?
+
+Thank you 🙏
+
+
+[01/29/2025 06:55] cloudellie
+Once the report is published, all submissions will be made public as well, and you’ll be able to see those detail. Keep an eye on the reports page on the C4 website and:or the C4 Twitter account.
+
+
+[01/29/2025 06:56] cloudellie
+@evokid congrats on your 1st place win! Huge milestone 🎉🌟
+
+{Reactions}
+❤️ 🙏🏻 thankyou 
+
+[01/29/2025 06:57] bloqarl
+Thank you! And how about my QA Report with the lows? Why can't I see if they're accepted/rejected and why?
+
+
+[01/29/2025 06:57] cloudellie
+Same thing - all submissions are made public at the same time.
+
+
+[01/29/2025 06:58] bloqarl
+so, if I'm not on the award list means that none of my findings were valid?
+
+
+[01/29/2025 07:15] mosharaf
+looks like leaderboard is not yet uploaded in the website
+
+
+[01/29/2025 07:17] bloqarl
+Okay, I see. So, it will be uploaded there at some point, good to know
+
+{Reactions}
+👍 
+
+[01/29/2025 07:59] bytes032
+great job @evokid, love to see you win
+
+{Reactions}
+💜 🙏🏻 thankyou 
+
+[01/29/2025 08:58] fatma7867
+Congrats @evokid and everyone who participated in this contest🚀🚀
+
+{Reactions}
+❤️ 
+
+[01/29/2025 15:34] 0xlaffitte
+what is S in findings means?
+
+
+[01/29/2025 15:38] cloudellie
+S stands for `submission`. A `finding` can be composed of a single submission, or several that have been marked as duplicates of each other.
+
+
+[01/30/2025 17:38] 33audits
+CONGRATS!!!!!
+
+{Reactions}
+🙏🏻 thankyou 
+
+[02/01/2025 10:26] mosharaf
+looks like there is no leaderboard for this contest in the website yet. Will there be one ??
+
+
+[02/01/2025 12:05] nitinchaddha_36036
+Hi. I am new to auditing. This is regarding FlexPerpetuals. I believe I found a low finding(checked the audit report) but didn't got acepted. Are we not able to see the reason of rejection?
+
+
+[02/01/2025 12:07] nitinchaddha_36036
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/image-E9F13.png
+
+
+[02/01/2025 12:09] nitinchaddha_36036
+That's the details
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/image-563BB.png
+
+
+[02/01/2025 12:10] nitinchaddha_36036
+I have labelled High but it's low
+
+
+[02/01/2025 12:35] daniel526
+High- or Medium-risk submissions downgraded to Low-risk (QA)) will be ineligible for awards.
+
+
+[02/01/2025 13:43] nitinchaddha_36036
+Thanks for clarification.
+
+
+[02/01/2025 14:29] cloudellie
+Yes, the leaderboard updates are a bit behind but we'll make an announcement once they're up.
+
+{Reactions}
+🫡 (4) 
+
+[02/03/2025 09:20] daniel526
+@CloudEllie possibility for awards disbursement this week?
+
+
+[02/03/2025 09:54] cloudellie
+I'll check
+
+{Reactions}
+🫡 (2) 
+
+[02/04/2025 20:16] viniciuscoassis
+lambo win if rebalance function didnt exist
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/silhouette-image-of-a-businessman-with-bro-29D93.png
+
+
+[02/04/2025 20:55] ligth0418
+When there are auditors who found same error, how to audit?
+
+
+[02/04/2025 20:55] ligth0418
+please tell me about it.
+
+
+[02/04/2025 21:09] chainsentry
+@CloudEllie One thing i don’t understand about the platform is how to see the reason for a rejected finding, everything is just blank even after the judging? am i missing something
+
+
+[02/05/2025 05:12] daniel526
+rent is due @CloudEllie sorry for being pushy 😭
+
+
+[02/05/2025 08:13] c_moose
+Quick question guys, So apparently I've my first ever high submission validated. It is the same issue that everyone and their grandma reported. 
+But 
+1. I don't see any rewards for that (tbh I'm not expecting any, at most a few cents)
+2. Most importantly, it doesn't show up on my profile either. 
+
+What am I missing?
+
+
+[02/05/2025 09:25] zxriptor
+yes, lambo.win hasn't shown up on the profile page yet. it takes longer for some reason.
+
+{Reactions}
+✅ (2) 
+
+[02/05/2025 09:27] zxriptor
+rewards haven't been distributed yet too. though if your finding resulted in less than 1 cent you will not get anything
+
+{Reactions}
+✅ (2) 
+
+[02/05/2025 09:31] bryan_conquer
+okay.. thanks  for this .
+
+
+[02/05/2025 11:11] cloudellie
+We have a bug currently with our leaderboard that's preventing these profile updates. Hoping to have it resolved soon, but that's why the announcement included this line: 
+> The leaderboard will be updated at a later date with these audit results.
+
+{Reactions}
+🫶 (4) 
+
+[02/05/2025 11:12] cloudellie
+Leaderboard feeds data to warden profiles
+
+
+[02/05/2025 12:40] dot_cloud
+bruh this contest sure on another level
+I thought that my 30 cent are from only 1 valid submission, instead it is from 2 valid submission :chefskiss: 
+*hurt right in the kokoro*
+
+{Reactions}
+👍 (2) 😂 
+
+[02/05/2025 12:45] welith
+It has a 0$ reward, so it does not show up as part of the rewarded. As for the profile update, will happen a bit later
+
+{Reactions}
+✅ (2) 
+
+[02/05/2025 19:17] 0xiehnnkta
+@CloudEllie Excuse me, I submitted HIGH vulnerability, it was shown on the public report, may i know why my name is not in leaderboard?
+
+
+[02/05/2025 19:17] 0xiehnnkta
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/image-CA60C.png
+
+
+[02/05/2025 19:19] cloudellie
+Please see my comment just above: https://discord.com/channels/810916927919620096/1311476554349547623/1336655558710919211
+
+{Reactions}
+👍 
+
+[02/05/2025 21:40] 0xslowbug
+@CloudEllie  Just going through the report I saw a report I submitted that wasn't validated, but I saw that almost the same thing I submitted was marked as a valid medium. There should be little comments on why reports are invalidated since it's only SR's that can escalate. It would help a lot. Now I can't tell why it's not valid lol at least to learn from it.
+
+
+[02/05/2025 21:46] cloudellie
+I expect you'll see improvements to this as our in-app tooling continues to evolve. We've made it easier for validators to add comments to submissions as they're working.
+
+
+[02/07/2025 22:54] sagetony224
+@CloudEllie Good day, I didn't receive payment on Lambo even though I was eligible. Is there something I got wrong?
+
+
+[02/08/2025 00:31] itsmetechjay
+Can you submit a [help desk request](https://code4rena.com/help) for this and we can take a look next week?
+
+
+[02/08/2025 00:49] sagetony224
+Thanks
+
+{Reactions}
+hi5 
+
+[02/08/2025 01:57] dot_cloud
+when will this contest result updated to our profile?
+
+
+[02/08/2025 10:35] frkln
+Hi guys, I am reading lambo reports and thanks a lot for all the contributors! 
+
+When reading this finding [`[H-02] LamboFactory can be permanently DoS-ed due to createPair call reversal`](https://code4rena.com/reports/2024-12-lambowin#h-02-lambofactory-can-be-permanently-dos-ed-due-to-createpair-call-reversal), I wonder why "Check pool existence using IUniswapV2Factory.getPair()" is fixed? If the getPair() returns the pair exists, then `LamboFactory.createLaunchPad` reverts, is it still a DoS?
+
+
+[02/08/2025 10:46] mrfalsegenius
+If the pool exists, no need to call createPair. That's the fix
+
+
+[02/08/2025 10:47] frkln
+oh ya can just use the pool created by the attacker, got it thanks!!!
+
+{Reactions}
+👍 
+
+[02/10/2025 23:34] viking71
+When will it be updated ?
+
+
+[02/11/2025 01:56] lanyi2024_15115
+I also encountered this problem, hoping to display it quickly on my personal profile.
+
+
+[02/11/2025 02:00] lanyi2024_15115
+This is my first report to be confirmed, and I hope it can be a memorable one.
+
+{Reactions}
+🔥 
+
+[02/11/2025 05:36] dot_cloud
+is there any estimate date for this to be resolved?
+given the fact that C4 applied submission limit, this update would help those (including myself kekw) who still not done 3 contest in C4
+
+
+[02/11/2025 06:38] lanyi2024_15115
+Please fix this as soon as possible
+
+
+[02/11/2025 09:41] cloudellie
+Hoping for next week for the leaderboard/profile fix. But this should not affect `signal` score -- that is calculated daily, using the finalized judging decisions for each audit. The leaderboard/profile issue is purely a display issue.
+
+
+[02/11/2025 09:50] dot_cloud
+thanks for the clarification :thankyou:
+
+{Reactions}
+hi5 
+
+[02/12/2025 14:07] 0xslowbug
+My signal is still 0 despite some wins recorded in 2 contests 
+
+I don’t think it updates daily
+
+Or is there an issue?
+
+
+[02/12/2025 14:18] cloudellie
+Yes, we need to update this so it shows as `n/a` rather than `0` as it's confusing at the moment. More here: https://discord.com/channels/810916927919620096/810931711609143326/1338457565482319873
+
+
+[02/16/2025 11:41] zxriptor
+Apparently, I already can see my lambo results on my consolidated sherlock profile page. Just a friendly note, this is not looking good for C4 😦
+
+
+[02/17/2025 12:01] dot_cloud
+mindblowing!
+
+
+[02/24/2025 15:43] itsmetechjay
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted in 03/07/2025 15:39. Please make sure to grab anything you might need before then.
+
+
+[03/02/2025 15:39] bshyuunn
+Hello!
+
+I was reviewing competition results to study, and I have a question.
+
+Could someone explain why the following report is considered valid?
+[Incorrect Struct Field and Hardcoded `sqrtPriceLimitX96` in `_getQuoteAndDirection`](https://code4rena.com/audits/2024-12-lambowin/submissions/F-94)
+
+From my perspective:
+
+1.    The issue regarding Incorrect struct field usage does not seem valid because, when checking the actual code, the amountIn value appears to be correct. ([IQuoter.sol#L30](https://github.com/code-423n4/2024-12-lambowin/blob/874fafc7b27042c59bdd765073f5e412a3b79192/src/interfaces/Uniswap/IQuoter.sol#L30))
+2. The [function](https://github.com/code-423n4/2024-12-lambowin/blob/874fafc7b27042c59bdd765073f5e412a3b79192/src/rebalance/LamboRebalanceOnUniwap.sol#L150C14-L150C35) that uses the hardcoded sqrtPriceLimitX96 value mentioned in the report is a view function. Even if the return value from [previewRebalance](https://github.com/code-423n4/2024-12-lambowin/blob/874fafc7b27042c59bdd765073f5e412a3b79192/src/rebalance/LamboRebalanceOnUniwap.sol#L116) is used for actual swaps, the real swap happens here.
+    •    The swap is executed using [OKXRouter](https://github.com/code-423n4/2024-12-lambowin/blob/874fafc7b27042c59bdd765073f5e412a3b79192/src/rebalance/LamboRebalanceOnUniwap.sol#L94), which does not enforce any sqrtPriceLimitX96 checks. ([DexRouter.sol#L678](https://github.com/okx/WEB3-DEX/blob/8b41647ccdc1ed15bc809cca7777439bdd1ca4ea/contracts/8/DexRouter.sol#L678))
+    •    Therefore, it seems like this wouldn’t cause any issues.
+
+This is not an appeal; I’m just asking to learn.
+
+{Embed}
+https://code4rena.com/audits/2024-12-lambowin/submissions/F-94
+Submission F-94 | Lambo.win | Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-PUBLIC - lambo-win-dec [1311476554349547623].txt_Files/c4-og-v2-64B78.png
+
+{Embed}
+https://github.com/code-423n4/2024-12-lambowin/blob/874fafc7b27042c59bdd765073f5e412a3b79192/src/rebalance/LamboRebalanceOnUniwap.sol
+2024-12-lambowin/src/rebalance/LamboRebalanceOnUniwap.sol at 874faf...
+Contribute to code-423n4/2024-12-lambowin development by creating an account on GitHub.
+
+{Embed}
+https://github.com/code-423n4/2024-12-lambowin/blob/874fafc7b27042c59bdd765073f5e412a3b79192/src/interfaces/Uniswap/IQuoter.sol
+2024-12-lambowin/src/interfaces/Uniswap/IQuoter.sol at 874fafc7b270...
+Contribute to code-423n4/2024-12-lambowin development by creating an account on GitHub.
+
+
+[03/03/2025 05:15] mrfalsegenius
+You're right. The `LamboRebalanceOnUniswap:: _getQuoteAndDirection` uses `QuoteExactInputSingleWithPoolParams `,
+```
+    struct QuoteExactInputSingleWithPoolParams {
+        address tokenIn;
+        address tokenOut;
+        uint256 amountIn; // this is correct!
+        address pool;
+        uint24 fee;
+        uint160 sqrtPriceLimitX96;
+    }
+
+```
+
+But the auditor quoted the `QuoteExactOutputSingleWithPoolParams ` in their report which isn't even used.
+
+
+[03/03/2025 05:19] mrfalsegenius
+@Daniel526 time to donate some of the wealth earned from this report 🥺
+
+
+[03/03/2025 10:05] tobi0x18
+Wow, that was a medium solo! 
+I also didn't understand it when it was judged.
+
+
+[03/03/2025 10:59] mrfalsegenius
+Well, even judges can make mistakes. I am more surprised about why the SRs didn't appeal this.
+
+Well, consider it a divine bonus to the auditor from God since he's been doing great in audits.
+
+{Reactions}
+😱 
+
+[03/06/2025 23:59] itsmetechjay
+ℹ️ Reminder: this channel will be deleted after 24 hours.
+
+
+==============================================================
+Exported 340 message(s)
+==============================================================
