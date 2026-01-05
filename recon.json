@@ -1,0 +1,33 @@
+{
+  "out/LamboFactory.sol/LamboFactory.0.8.23.json": {
+    "enabled": true,
+    "functions": [
+      {
+        "signature": "addVTokenWhiteList(address)",
+        "actor": "actor",
+        "mode": "normal"
+      },
+      {
+        "signature": "createLaunchPad(string,string,uint256,address)",
+        "actor": "actor",
+        "mode": "normal"
+      },
+      {
+        "signature": "removeVTokenWhiteList(address)",
+        "actor": "actor",
+        "mode": "normal"
+      },
+      {
+        "signature": "renounceOwnership()",
+        "actor": "actor",
+        "mode": "normal"
+      },
+      {
+        "signature": "transferOwnership(address)",
+        "actor": "actor",
+        "mode": "normal"
+      }
+    ],
+    "separated": true
+  }
+}
