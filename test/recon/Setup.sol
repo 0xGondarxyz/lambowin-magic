@@ -14,14 +14,17 @@ import {Utils} from "@recon/Utils.sol";
 
 // Your deps
 import "src/LamboFactory.sol";
+import "src/LamboToken.sol";
 
 abstract contract Setup is BaseSetup, ActorManager, AssetManager, Utils {
     LamboFactory lamboFactory;
+    LamboToken lamboToken;
 
     /// === Setup === ///
     /// This contains all calls to be performed in the tester constructor, both for Echidna and Foundry
     function setup() internal virtual override {
-        lamboFactory = new LamboFactory(); // TODO: Add parameters here
+        lamboToken = new LamboToken();
+        lamboFactory = new LamboFactory(address(lamboToken));
     }
 
     /// === MODIFIERS === ///
