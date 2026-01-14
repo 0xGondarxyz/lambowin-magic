@@ -24,10 +24,7 @@ contract LamboFactory is Ownable, ReentrancyGuard {
     event TokenDeployed(address quoteToken);
     event PoolCreated(address virtualLiquidityToken, address quoteToken, address pool, uint256 virtualLiquidityAmount);
     event LiquidityAdded(
-        address virtualLiquidityToken,
-        address quoteToken,
-        uint256 amountVirtualDesired,
-        uint256 amountQuoteOptimal
+        address virtualLiquidityToken, address quoteToken, uint256 amountVirtualDesired, uint256 amountQuoteOptimal
     );
     event VTokenWhiteListAdded(address virtualLiquidityToken);
     event VTokenWhiteListRemoved(address virtualLiquidityToken);
